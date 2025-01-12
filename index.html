@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Turtle Tutorial</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: Consolas, monospace;
+      }
+
+      .function {
+        color: #dcdcaa;
+      }
+
+      .class {
+        color: #4ec9b0;
+      }
+
+      .variable {
+        color: #9cdcfe;
+      }
+
+      .string {
+        color: #ce9178;
+      }
+
+      .comment {
+        color: #6a9955;
+        font-style: italic;
+      }
+
+      .keyword {
+        color: #569cd6;
+      }
+
+      .module {
+        color: #c586c0;
+      }
+
+      code {
+        font-family: Consolas, monospace;
+        color: inherit;
+      }
+
+      strong {
+        color: #007bff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Introduction to Python with Turtle Graphics</h1>
+    <p>
+      Today, we'll explore <strong>Python</strong> using the
+      <strong>Turtle</strong> graphics module, which allows us to create
+      graphics by controlling a "turtle" on the screen. To get started, open
+      <strong>VS Code</strong>, create a new file named <code>main.py</code>,
+      and begin by importing Turtle with <code>import turtle</code>. Let's set
+      up a window for our turtle. Use the following code to create the window:
+    </p>
+    <pre><code><span class="keyword">import</span> <span class="module">turtle</span>
+
+<span class="keyword">turtle</span>.tracer(0)
+<span class="keyword">turtle</span>.speed(0)
+<span class="keyword">turtle</span>.hideturtle()
+<span class="keyword">turtle</span>.bgcolor(<span class="string">'black'</span>)
+<span class="keyword">turtle</span>.title(<span class="string">'Yay'</span>)
+<span class="keyword">turtle</span>.mainloop()</code></pre>
+    <p>
+      In this setup, <code>tracer(0)</code> and <code>speed(0)</code> make
+      drawing faster, <code>hideturtle()</code> hides the turtle cursor,
+      <code>bgcolor('black')</code> sets the background color to black,
+      <code>title('Yay')</code> sets the window title, and
+      <code>mainloop()</code> keeps the window open.
+    </p>
+
+    <p>
+      Next, let's draw random lines using the <code>random</code> module. Add
+      the module with <code>import random</code>. Modify your code to include a
+      loop that moves the turtle randomly:
+    </p>
+    <pre><code><span class="keyword">import</span> <span class="module">turtle</span>
+<span class="keyword">import</span> <span class="module">random</span>
+
+<span class="keyword">turtle</span>.tracer(0)
+<span class="keyword">turtle</span>.speed(0)
+<span class="keyword">turtle</span>.hideturtle()
+<span class="keyword">turtle</span>.bgcolor(<span class="string">'white'</span>)
+<span class="keyword">turtle</span>.title(<span class="string">'Yay'</span>)
+<span class="keyword">turtle</span>.pencolor(<span class="string">'black'</span>)
+<span class="keyword">turtle</span>.pensize(2)
+<span class="keyword">turtle</span>.goto(0, 0)
+
+<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="keyword">range</span>(100):
+    <span class="keyword">turtle</span>.forward(<span class="module">random</span>.randint(1, 100))
+    <span class="keyword">turtle</span>.right(<span class="module">random</span>.randint(0, 360))
+
+<span class="keyword">turtle</span>.done()</code></pre>
+    <p>
+      Here, <code>random.randint(a, b)</code> generates a random integer between
+      <code>a</code> and <code>b</code>, and the loop moves the turtle randomly
+      to create abstract art. Now, let's draw a perfect circle and fill it with
+      color. Use the following code:
+    </p>
+    <pre><code><span class="keyword">import</span> <span class="module">turtle</span>
+
+<span class="keyword">turtle</span>.tracer(0)
+<span class="keyword">turtle</span>.speed(0)
+<span class="keyword">turtle</span>.hideturtle()
+<span class="keyword">turtle</span>.bgcolor(<span class="string">'white'</span>)
+<span class="keyword">turtle</span>.title(<span class="string">'Yay'</span>)
+<span class="keyword">turtle</span>.pencolor(<span class="string">'red'</span>)
+<span class="keyword">turtle</span>.fillcolor(<span class="string">'red'</span>)
+<span class="keyword">turtle</span>.pensize(2)
+
+<span class="keyword">turtle</span>.penup()
+<span class="keyword">turtle</span>.goto(0, -100)
+<span class="keyword">turtle</span>.pendown()
+
+<span class="keyword">turtle</span>.begin_fill()
+<span class="keyword">turtle</span>.circle(100)
+<span class="keyword">turtle</span>.end_fill()
+
+<span class="keyword">turtle</span>.done()</code></pre>
+    <p>
+      In this code, <code>penup()</code> lifts the pen to move the turtle
+      without drawing, <code>goto(x, y)</code> moves the turtle to specific
+      points, <code>circle(x, y)</code> automates drawing points in a circle,
+      and <code>begin_fill()</code> and <code>end_fill()</code> fill the shape
+      drawn between them. This creates a simple flag resembling the Japanese
+      flag.
+    </p>
+
+    <h2>Drawing Rectangles with Turtle</h2>
+    <p>
+      Let's learn how to draw rectangles using Turtle. We'll use the
+      <code>turtle.forward()</code> and <code>turtle.right()</code> methods to
+      create a rectangle. Use the following code to draw a simple rectangle:
+    </p>
+    <pre><code><span class="keyword">import</span> <span class="module">turtle</span>
+
+<span class="keyword">turtle</span>.tracer(0)
+<span class="keyword">turtle</span>.speed(0)
+<span class="keyword">turtle</span>.hideturtle()
+<span class="keyword">turtle</span>.bgcolor(<span class="string">'white'</span>)
+<span class="keyword">turtle</span>.title(<span class="string">'Rectangle'</span>)
+<span class="keyword">turtle</span>.pencolor(<span class="string">'blue'</span>)
+<span class="keyword">turtle</span>.pensize(2)
+
+<span class="keyword">turtle</span>.penup()
+<span class="keyword">turtle</span>.goto(-50, 50)
+<span class="keyword">turtle</span>.pendown()
+
+<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="keyword">range</span>(2):
+    <span class="keyword">turtle</span>.forward(100)
+    <span class="keyword">turtle</span>.right(90)
+    <span class="keyword">turtle</span>.forward(50)
+    <span class="keyword">turtle</span>.right(90)
+
+<span class="keyword">turtle</span>.done()</code></pre>
+    <p>
+      This code creates a rectangle with a width of 100 and a height of 50. Now,
+      let's use this knowledge to draw the flag of Austria.
+    </p>
+
+    <h2>Drawing the Flag of Austria</h2>
+    <p>
+      The Austrian flag consists of three horizontal bands: red, white, and red.
+      We'll draw this flag by stacking three rectangles on top of each other.
+      Use the following code:
+    </p>
+    <pre><code><span class="keyword">import</span> <span class="module">turtle</span>
+
+<span class="keyword">turtle</span>.tracer(0)
+<span class="keyword">turtle</span>.speed(0)
+<span class="keyword">turtle</span>.hideturtle()
+<span class="keyword">turtle</span>.bgcolor(<span class="string">'white'</span>)
+<span class="keyword">turtle</span>.title(<span class="string">'Flag of Austria'</span>)
+<span class="keyword">turtle</span>.pensize(2)
+
+<span class="function">def draw_rectangle</span>(color, width, height):
+    <span class="keyword">turtle</span>.begin_fill()
+    <span class="keyword">turtle</span>.fillcolor(color)
+    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="keyword">range</span>(2):
+        <span class="keyword">turtle</span>.forward(width)
+        <span class="keyword">turtle</span>.right(90)
+        <span class="keyword">turtle</span>.forward(height)
+        <span class="keyword">turtle</span>.right(90)
+    <span class="keyword">turtle</span>.end_fill()
+
+<span class="keyword">turtle</span>.penup()
+<span class="keyword">turtle</span>.goto(-100, 50)
+<span class="keyword">turtle</span>.pendown()
+
+<span class="keyword">draw_rectangle</span>(<span class="string">'red'</span>, 200, 50)
+<span class="keyword">turtle</span>.penup()
+<span class="keyword">turtle</span>.goto(-100, 0)
+<span class="keyword">turtle</span>.pendown()
+<span class="keyword">draw_rectangle</span>(<span class="string">'white'</span>, 200, 50)
+<span class="keyword">turtle</span>.penup()
+<span class="keyword">turtle</span>.goto(-100, -50)
+<span class="keyword">turtle</span>.pendown()
+<span class="keyword">draw_rectangle</span>(<span class="string">'red'</span>, 200, 50)
+
+<span class="keyword">turtle</span>.done()</code></pre>
+    <p>
+      This code defines a function <code>draw_rectangle</code> to draw a filled
+      rectangle of the specified color, width, and height, and then uses it to
+      create the flag of Austria. Functions are basically a name to cover a list of instructions. For example, if the mall, m and home, h, are 2D points, then there could be a function <code>"Go_To_Mall_and_Back"</code> that takes in these two inputs and moves the turtle to the mall and back. It may look like this:
+    <pre><code><span class="keyword">import</span> <span class="module">turtle</span>
+
+<span class="keyword">turtle</span>.tracer(0)
+<span class="keyword">turtle</span>.speed(0)
+<span class="keyword">turtle</span>.hideturtle()
+<span class="keyword">turtle</span>.bgcolor(<span class="string">'white'</span>)
+<span class="keyword">turtle</span>.title(<span class="string">'I Love The Mall'</span>)
+<span class="keyword">turtle</span>.pensize(2)
+
+<span class="function">def Go_To_Mall_and_Back</span>(h,m):
+    <span class="keyword">turtle</span>.begin_fill()
+    <span class="keyword">turtle</span>.fillcolor(color)
+
+    <span class="keyword">turtle</span>.goto(h)
+    <span class="keyword">turtle</span>.goto(m)
+    <span class="keyword">turtle</span>.goto(h)
+
+
+Go_To_Mall_and_Back((0,0),(100,100))
+
+<span class="keyword">turtle</span>.done()</code></pre>
+    </p>
+
+    <h2>Challenge: Draw More Flags</h2>
+    <p>
+      Now it's time for a challenge! Try drawing these flags using what you've
+      learned:
+      
+        <strong>Germany:</strong> Three horizontal bands of black, red, and yellow,
+
+        <strong>France:</strong> Three vertical bands of blue, white, and red,
+
+        and <strong>Italy:</strong> Three vertical bands of green, white, and red.
+
+    <p>
+    <p>
+      Can you create functions to draw these flags? Experiment with different
+      colors and sizes. Happy coding! You've now completed a fun and interactive way to learn Python with Turtle
+      graphics!
+    </p>
+  </body>
+</html>
